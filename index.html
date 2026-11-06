@@ -198,6 +198,19 @@
   .pessoa.vazio { color: var(--tinta-3); font-weight: 600; border-style: dashed; box-shadow: none; }
   .mural-sec .chamada { margin: 44px auto 0; max-width: 620px; padding: 22px 26px; border: 2px solid var(--tinta); border-radius: var(--raio); background: var(--amarelo); font-size: 16px; font-weight: 600; transform: rotate(-1deg); box-shadow: 6px 6px 0 var(--tinta); }
 
+  /* ---------- avaliar ---------- */
+  .avaliar { background: var(--amarelo); border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); padding: 72px 0; }
+  .avaliar .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+  .avaliar .tag { background: var(--tinta); }
+  .avaliar h2 { font-size: clamp(30px, 3.8vw, 44px); }
+  .avaliar p { margin: 14px 0 0; max-width: 560px; font-size: 17px; color: var(--tinta); }
+  .estrelas { display: inline-flex; gap: 4px; margin-bottom: 14px; }
+  .estrelas svg { width: 30px; height: 30px; fill: var(--tinta); animation: brilha 2.4s ease-in-out infinite; }
+  .estrelas svg:nth-child(2) { animation-delay: .15s; } .estrelas svg:nth-child(3) { animation-delay: .3s; } .estrelas svg:nth-child(4) { animation-delay: .45s; } .estrelas svg:nth-child(5) { animation-delay: .6s; }
+  @keyframes brilha { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18) rotate(-6deg); } }
+  .avaliar .botoes { display: flex; flex-direction: column; gap: 12px; }
+  .avaliar .btn { justify-content: center; }
+
   /* ---------- apoiar ---------- */
   .apoiar { background: var(--tinta); color: #fff; position: relative; overflow: hidden; }
   .apoiar::before { content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%; background: var(--verde); right: -120px; top: -180px; opacity: .55; filter: blur(40px); }
@@ -231,7 +244,7 @@
     .nav ul { display: none; }
     .nav .marca span { display: none; }
     .hero { padding: 56px 0 40px; }
-    .hero .wrap, .mesa, .contas .grade, .priv .colunas, .apoiar .wrap { grid-template-columns: 1fr; gap: 36px; }
+    .hero .wrap, .mesa, .contas .grade, .priv .colunas, .apoiar .wrap, .avaliar .wrap { grid-template-columns: 1fr; gap: 36px; }
     .cartaz { margin-top: 24px; }
     .cartaz .antes { margin-right: 12px; } .cartaz .depois { margin-left: 12px; }
     .passos, .duas, .zeros { grid-template-columns: 1fr; }
@@ -246,7 +259,7 @@
     .pal, .cartaz, .hero h1 .marcado::before { animation: none; opacity: 1; transform: scaleX(1) none; }
     .cartaz { opacity: 1; }
     .rv { opacity: 1; transform: none; transition: none; }
-    .trilho, .selo-tempo, .teclas i { animation: none; }
+    .trilho, .selo-tempo, .teclas i, .estrelas svg { animation: none; }
   }
 </style>
 </head>
@@ -261,6 +274,7 @@
       <li><a href="#contas">Faça as contas</a></li>
       <li><a href="#privacidade">Privacidade</a></li>
       <li><a href="#apoiadores">Apoiadores</a></li>
+      <li><a href="#avaliar">Avaliar</a></li>
     </ul>
     <a class="btn amarelo mini" href="#apoiar">Apoiar com Pix ♥</a>
   </div>
@@ -423,6 +437,26 @@
   </div>
 </section>
 
+<section id="avaliar" class="avaliar">
+  <div class="wrap">
+    <div>
+      <div class="estrelas rv" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.3 6 20.6l1.3-6.6L2.4 9.4l6.7-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.3 6 20.6l1.3-6.6L2.4 9.4l6.7-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.3 6 20.6l1.3-6.6L2.4 9.4l6.7-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.3 6 20.6l1.3-6.6L2.4 9.4l6.7-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17.3 6 20.6l1.3-6.6L2.4 9.4l6.7-.8z"/></svg>
+      </div>
+      <h2 class="rv">Já usou? Deixe uma avaliação na loja.</h2>
+      <p class="rv">Leva um minuto, não custa nada e é o que faz outro professor encontrar a extensão quando procura "notas RCO" na Chrome Web Store. Conte o que funcionou e o que falta.</p>
+    </div>
+    <div class="botoes rv">
+      <a class="btn verde linkRcoAvaliar" href="#" target="_blank" rel="noopener"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAGHUlEQVRoge1ZbWxTVRh+3nvb7qP7YlnXrt1AZCNmUzIYiguERIkgoAYMX2qI+EHAoNOoI2HRIMEYFRMERUQJQUxAhjDC+BgILkYMAQZEZDNkCgy3tuvmcOvo1q49rz9gl/VjXb9W/vD8Ove573nv87TvOfecc4F7uLugUAN1ubkFkhAlYDIQUUKsBDCzE8RWIUl1bc3Nf4XbfwgDJWqDwbKUSVoBcGEUOkOV08DMX9qshq3Aub6Qegx2Q2cyFUsClQAKAIA1anh0meCkRLAkxU6yEJB6eiG1dYBctzQzcBkSFtpaWn6PyIDBkDuLiSsBaEVaClyF+XDnZAMUcsWFD2aoLG3Q1DdCsncDgIOY5lmtzUeCdZN9CZ3JVEzAEQBad14OeieXQKSlDq94ACCCSNXCPToP1OOE3NmlBmGRNj3DdtPeVReigRJ1Wkp3LYCcvlG5cE58aPiF+4IIHmM2yNELudMuEfNTKWlpRempqYfsdrvfuPAqZoPBspSBsSItBa7xcRizQeAaXwiRqr11wZjvYao1Go3JvnFeBm7NNoCrMB8sxfmX9wFLEpxFBQOpRzyCtvnGKQZ0ubkFABeyRg23QRcvnUHhMejAGvUdgrAw22icPjBGMSAJMQEAPLpMIIbTZFSQJIisTC+KmFZ7hSgtJiMAcFJi3PSFApHsp6fUZDLl9l8oBpg5DQBYrfbtMGwYo9PjwznzsWrmMxiRrA0YE0APeTwo7b9Q9TckSSJmHj61Phirz8GJd1YpwmePK8bUT9dChKCBCab+9l0p9kxtCva+Vub1qxfnjUJ+tiGk/syc3t+OuwGNrMKupSswOivbi7/pcsLa9V9IOSTpzhwfdwMbnluMyflj/fjyPTvR1dMTdr64Gnj7iZlY/OgUP/7z4zXYcepkRDnjZuDJB8dh9dPP+vHHGv7A6gN7I84bFwPjckfiu5eXQ/Z5Qf5pMePFbVvgESLi3KoQYhSM0enx0uSpuOl04utfTuCG4+aQfXLSM7BneRm0Gu9dqLWzE3O/Wg97b/h1PxAhG9ClpqH23QpkalMAAAsmTsKsjetg6Rx85kjWaLB72RswZYzw4nv6XFj0zRdovtERjXYgnBKa9kCRIh4ACvQGHC4rR056RsB4IsKWxa9gwsj7vHhmxrLvt6Gu6Wo0uhWEbOBKW6sfF8zEe7PnYO74iX78R4cPYN/5s5FoDYiQDZy5dgXrj/tvTwOZWPRwKVbOmO0XW1l3Gh/XVEej1w9hzULv7/8Rnx075McX6A2oeWsljBkjMOn+fGx6YQnIZyt6/vo1vL5zO2K93gprFgKADw7sg0ZWoWzaDC9+jE6Pw2XlSE9KQoLKO+31jn8xb/MGOFyu6BX7IGwDAFBRVQmn241ynzLJz9b7xXb39mLBlo2w2bsiVxkEEb/I1lTvw8YTR4PGeITAku1bcKmlOdLHDImo3sQVVZVBTVRUVaLm0sVoHjEkFANCiIhGV0VVJdYd9R/YO06dxKban6KUNzQUA0TUCQDUF9KZqhfWVO/DJzUHld3U/gt1ePOHHTEROJSeO4OY2AImSD29ET1o7cEqfPvrz0hSJ+Bquy2iHIFAjuBrJcUAu+U6kgWktg5AiIiOVqydnZGpHAyCIbcFXy8pKm22f/4GuJ5cfVBZ22MrJELIFhuoz+3HDxyv3keLTJsAQFPfCIpijR4LkBBIqG8MfI8kZQnsZcBmNWxl4LJk74bmQkMcZA4OzYUGSN2B9xvEbO5v+xT6uT5IWAjAoW5qQeLZiyBPfP8JEgIJ5y5B3dQyWIhwu1XKBnqwLzQzmbgagCxStXAWFcBj0A3vmakQkC1tSKhvHPSXv43fWi0tysnAoGfo2aa85STE5v5r1qghsjIhkhPBCZrYfPhgBjldIEcP5LaOgAPWrwvxdJvZrLwhg6rQG02VYMyPXmmsQLtaLc3PD2SC1oQMXgLgzLDrCgWE0zKJV33poAbMZrNDJn4MjN3DKm5I0C4Z/LjZbHb43Qk1RbbROP32x4XScPpFAQHgFBOvGVjzvghbSFZenlHVJ6YwUQ7AejDH8Ks3CYBaidnsdqtOtrc3WWKW+x6GCf8DuDUZKYm50ZoAAAAASUVORK5CYII=" alt="">Avaliar Notas RCO</a>
+      <a class="btn indigo linkSophiaAvaliar" href="#" target="_blank" rel="noopener"><img src="data:image/png;base64,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" alt="">Avaliar Notas SophiA</a>
+    </div>
+  </div>
+</section>
+
 <section id="apoiar" class="apoiar">
   <div class="wrap">
     <div>
@@ -465,6 +499,8 @@
   const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   for (const a of document.querySelectorAll(".linkRco")) { if (LINK_RCO) a.href = LINK_RCO; else { a.textContent = a.classList.contains("mini") ? "Em breve" : "Notas RCO: em breve na loja"; a.removeAttribute("target"); a.href = "#experimente"; } }
+  for (const a of document.querySelectorAll(".linkRcoAvaliar")) { if (LINK_RCO) a.href = LINK_RCO.replace(/\/?$/, "/reviews"); else a.closest("section").remove(); }
+  for (const a of document.querySelectorAll(".linkSophiaAvaliar")) { if (LINK_SOPHIA) a.href = LINK_SOPHIA.replace(/\/?$/, "/reviews"); }
   for (const a of document.querySelectorAll(".linkSophia")) { if (LINK_SOPHIA) a.href = LINK_SOPHIA; else { a.textContent = a.classList.contains("mini") ? "Em breve" : "Notas SophiA: em breve na loja"; a.removeAttribute("target"); a.href = "#experimente"; } }
 
   // barra de progresso
